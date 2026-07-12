@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const topics = [
+  "Building and scaling a payments / fintech company",
+  "Sales systems and breaking sales records",
+  "Founder habits, daily discipline, and hiring",
+  "What extreme physical adventure teaches about business and relationships",
+];
+---
+
+<BaseLayout
+  title="Book Brad Weimert | Speaker & Podcast Guest, Austin TX"
+  description="Book Brad Weimert, founder and CEO of Easy Pay Direct, for your podcast or stage. Topics include payments, sales, founder habits, and lessons from extreme adventure."
+>
+  <main>
+    <section class="mx-auto max-w-4xl px-6 py-20">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-teal">Book Brad</p>
+      <h1 class="mt-4 font-display text-4xl text-paper sm:text-5xl">
+        Bring the fintech founder, the adventurer, or both.
+      </h1>
+      <p class="mt-6 text-lg leading-relaxed text-paper/80">
+        Brad speaks and guests on shows about sales, payments, and entrepreneurship, always backed by two decades of building Easy Pay Direct and a habit of testing his limits on mountains, bikes, and rock faces along the way.
+      </p>
+
+      <div class="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div>
+          <h2 class="font-display text-2xl text-paper">Good topics</h2>
+          <ul class="mt-6 space-y-4 text-paper/80">
+            {topics.map((t) => (
+              <li class="flex gap-3"><span class="text-teal">-</span> {t}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-ink-soft p-8">
+          <h2 class="font-display text-2xl text-paper">Get in touch</h2>
+          <p class="mt-4 text-paper/75">
+            Send the details of your show, stage, or event and Brad's team will follow up.
+          </p>
+          <a
+            href="mailto:booking@bradweimert.com"
+            class="mt-6 inline-flex items-center gap-2 rounded-full bg-teal px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ink transition-colors hover:bg-teal-dark hover:text-paper"
+          >
+            booking@bradweimert.com
+          </a>
+          <p class="mt-4 text-sm text-paper/50">Update this address once the site owner confirms the right inbox.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

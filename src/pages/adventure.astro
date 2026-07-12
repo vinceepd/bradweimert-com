@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const adventures = [
+  { title: "Everesting x2", copy: "Climbing the elevation of Mt Everest, twice, back to back, on a single route." },
+  { title: "Coast to coast by bicycle", copy: "Crossed the country by bike in 2007, giving speeches to at-risk youth along the way." },
+  { title: "Climbing in Cuba", copy: "A climbing trip through Cuba's limestone routes." },
+  { title: "Climbing in Poland", copy: "Alpine and sport climbing across Poland." },
+  { title: "Cayman Brac", copy: "A climbing trip to Cayman Brac's coastal cliffs." },
+  { title: "Aeronautic acrobatics", copy: "Aerobatic flight, because gravity is a suggestion." },
+];
+---
+
+<BaseLayout
+  title="Adventure | Brad Weimert's Extreme Adventures"
+  description="From Everesting twice back to back to a cross-country bicycle ride for charity and climbing trips through Cuba, Poland, and the Cayman Islands, Brad Weimert treats adventure as a way to find out who he really is."
+>
+  <main>
+    <section class="relative overflow-hidden hex-grid border-b border-white/10">
+      <div class="absolute inset-0 bg-gradient-to-b from-ink via-ink/95 to-ink"></div>
+      <div class="relative mx-auto max-w-4xl px-6 py-20">
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-teal">Adventure</p>
+        <h1 class="mt-4 font-display text-4xl text-paper sm:text-5xl">
+          Pushing to the limit is where the truest adventures live.
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg text-paper/80">
+          When you're at the far end of your physical capability, you discover who you are and what you're made of. It's as true mentally and emotionally as it is physically.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6 py-20">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {adventures.map((a) => (
+          <div class="rounded-2xl border border-white/10 bg-ink-soft p-8">
+            <h2 class="font-display text-xl text-paper">{a.title}</h2>
+            <p class="mt-3 text-paper/70">{a.copy}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-16 rounded-2xl border border-teal/30 bg-ink-soft p-8 text-center">
+        <p class="text-paper/80">
+          Full trip reports and galleries from the road are being rebuilt here. In the meantime, ask Brad about his next adventure directly.
+        </p>
+        <a href="/book-brad" class="mt-6 inline-block rounded-full bg-teal px-7 py-3 text-sm font-semibold uppercase tracking-wide text-ink transition-colors hover:bg-teal-dark hover:text-paper">
+          Get in touch
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

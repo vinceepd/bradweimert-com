@@ -1,0 +1,58 @@
+---
+import logoTeal from "../assets/brand/logo-teal.png";
+import { Image } from "astro:assets";
+
+const navItems = [
+  { href: "/about", label: "About" },
+  { href: "/entrepreneurship", label: "Entrepreneurship" },
+  { href: "/adventure", label: "Adventure" },
+  { href: "/book-brad", label: "Book Brad" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="flex items-center gap-3">
+      <Image src={logoTeal} alt="Brad Weimert" width={40} height={33} class="h-8 w-auto" />
+      <span class="font-display text-lg tracking-tight text-paper">Brad Weimert</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "text-sm font-medium uppercase tracking-wide transition-colors",
+            currentPath === item.href ? "text-teal" : "text-paper/80 hover:text-teal",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href="/book-brad"
+      class="hidden rounded-full bg-teal px-5 py-2 text-sm font-semibold text-ink transition-colors hover:bg-teal-dark hover:text-paper md:inline-block"
+    >
+      Book Brad
+    </a>
+
+    <details class="md:hidden">
+      <summary class="list-none cursor-pointer text-paper" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </svg>
+      </summary>
+      <div class="absolute inset-x-0 top-full flex flex-col gap-1 border-b border-white/10 bg-ink px-6 py-4">
+        {navItems.map((item) => (
+          <a href={item.href} class="py-2 text-sm font-medium uppercase tracking-wide text-paper/80 hover:text-teal">
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </details>
+  </div>
+</header>

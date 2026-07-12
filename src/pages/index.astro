@@ -1,12 +1,111 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import linkedinBanner from "../assets/brand/linkedin-banner.jpg";
+import { Image } from "astro:assets";
+
+const pillars = [
+  {
+    title: "Entrepreneurship",
+    copy: "Founder and CEO of Easy Pay Direct, a payment gateway serving more than 60,000 merchants. Host of Beyond A Million, conversations with 8, 9, and 10 figure entrepreneurs about sales, marketing, operations, technology, and taxation.",
+    href: "/entrepreneurship",
+    cta: "See the business side",
+  },
+  {
+    title: "Adventure",
+    copy: "Everesting x2. Crossing the country by bicycle to speak to at-risk youth. Climbing in Cuba, Poland, and the Cayman Islands. Pushing to the edge of what the body and mind can do, on purpose.",
+    href: "/adventure",
+    cta: "See the adventures",
+  },
+  {
+    title: "Relationships",
+    copy: "Every accomplishment traces back to the depth of a relationship. Brad builds them through intense, honest experiences, not small talk.",
+    href: "/about",
+    cta: "Read the story",
+  },
+];
+
+const proof = [
+  { stat: "60,000+", label: "merchants served by Easy Pay Direct" },
+  { stat: "2x", label: "Everesting, back to back" },
+  { stat: "20+", label: "years building sales and payments businesses" },
+];
 ---
 
-<BaseLayout title="Brad Weimert" description="Placeholder homepage, redesign in progress.">
-  <main class="min-h-screen flex items-center justify-center bg-slate-950 text-slate-100">
-    <div class="text-center px-6">
-      <h1 class="text-3xl font-semibold tracking-tight">Brad Weimert</h1>
-      <p class="mt-3 text-slate-400">Scaffold is live. Redesign in progress.</p>
-    </div>
+<BaseLayout
+  title="Brad Weimert | Fintech CEO, Adventurer, Podcast Host in Austin, TX"
+  description="Brad Weimert is the founder and CEO of Easy Pay Direct, a merchant services company serving 60,000+ businesses. Based in Austin, Texas. Podcast host, extreme adventurer, and relationship-first entrepreneur."
+>
+  <main>
+    <section class="relative overflow-hidden hex-grid">
+      <div class="absolute inset-0 bg-gradient-to-b from-ink via-ink/95 to-ink"></div>
+      <div class="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-24 md:py-32">
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-teal">Austin, Texas</p>
+        <h1 class="font-display text-balance text-4xl font-medium leading-tight text-paper sm:text-5xl md:text-6xl">
+          Fintech CEO. Adventurer.<br class="hidden sm:block" /> Podcast host.
+        </h1>
+        <p class="max-w-2xl text-lg text-paper/80">
+          Brad Weimert built Easy Pay Direct into a payment gateway trusted by more than 60,000 merchants, then went and Everested a mountain twice for fun. He talks business on Beyond A Million and answers to nothing but the truth.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/book-brad" class="rounded-full bg-teal px-7 py-3 text-sm font-semibold uppercase tracking-wide text-ink transition-colors hover:bg-teal-dark hover:text-paper">
+            Book Brad
+          </a>
+          <a href="/about" class="rounded-full border border-paper/30 px-7 py-3 text-sm font-semibold uppercase tracking-wide text-paper transition-colors hover:border-teal hover:text-teal">
+            Read the story
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-ink-soft">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-12 sm:grid-cols-3">
+        {proof.map((item) => (
+          <div class="text-center sm:text-left">
+            <p class="font-display text-4xl text-teal">{item.stat}</p>
+            <p class="mt-1 text-sm text-paper/70">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6 py-20">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-gold">At my core</p>
+      <h2 class="mt-3 font-display text-3xl text-paper sm:text-4xl">Three threads, one person.</h2>
+
+      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {pillars.map((pillar) => (
+          <a href={pillar.href} class="group flex flex-col justify-between rounded-2xl border border-white/10 bg-ink-soft p-8 transition-colors hover:border-teal/60">
+            <div>
+              <h3 class="font-display text-2xl text-paper">{pillar.title}</h3>
+              <p class="mt-4 text-sm leading-relaxed text-paper/70">{pillar.copy}</p>
+            </div>
+            <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-teal">
+              {pillar.cta}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6 pb-20">
+      <div class="overflow-hidden rounded-2xl border border-white/10">
+        <Image src={linkedinBanner} alt="Brad Weimert: Fintech CEO, Adventurer, Podcast Host" class="w-full object-cover" />
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 bg-ink-soft">
+      <div class="mx-auto max-w-6xl px-6 py-20 text-center">
+        <h2 class="font-display text-3xl text-paper sm:text-4xl">Want Brad on your stage or your show?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-paper/70">
+          Sales, payments, entrepreneurship, and what it actually takes to build something real, told straight, with the adventure stories to back it up.
+        </p>
+        <a href="/book-brad" class="mt-8 inline-block rounded-full bg-teal px-8 py-3 text-sm font-semibold uppercase tracking-wide text-ink transition-colors hover:bg-teal-dark hover:text-paper">
+          Book Brad
+        </a>
+      </div>
+    </section>
   </main>
 </BaseLayout>

@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const podcasts = [
+  { name: "The Carrot Cast", note: "What climbing twice the height of Mt Everest taught me" },
+  { name: "Peak Performers Podcast", note: "How you do one thing is how you do everything" },
+  { name: "The Front Row Factor", note: "" },
+  { name: "The Tony G Show", note: "" },
+  { name: "The Casey Graham Show", note: "Master your hiring process" },
+  { name: "The Eventual Millionaire (Jaime Masters)", note: "How to build successful daily habits" },
+  { name: "Challenge Assumptions Podcast", note: "" },
+  { name: "Accelerating Entrepreneurial Success", note: "Raising the bar for 8 figure CEOs" },
+];
+---
+
+<BaseLayout
+  title="About Brad Weimert | Austin-Based Fintech Founder & Adventurer"
+  description="Brad Weimert built Easy Pay Direct from the ground up, broke national sales records at 20, biked across the country for charity, and treats relationships as the throughline of everything he's built."
+>
+  <main>
+    <section class="mx-auto max-w-4xl px-6 py-20">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-teal">About</p>
+      <blockquote class="mt-6 font-display text-2xl italic text-paper/90 sm:text-3xl">
+        The chains of habit are too light to be felt until they're too heavy to be broken.
+      </blockquote>
+
+      <h2 class="mt-14 font-display text-3xl text-paper">Life is about relationships.</h2>
+      <div class="mt-6 space-y-5 text-lg leading-relaxed text-paper/80">
+        <p>
+          Every accomplishment in Brad's life can be traced back to the depth of a single relationship, or several. He's on a constant search for people who are genuinely passionate, in any part of life. As an entrepreneur, that means seeking out founders who care about their businesses beyond the exit.
+        </p>
+        <p class="font-display text-xl text-gold">Deep relationships are built, and thrive, in unique situations.</p>
+        <p>
+          That belief is why Brad chases intense physical adventure. At the far edge of your physical capability, you find out who you are and what you're made of, mentally and emotionally as much as physically. That's the moment you learn who someone truly is at their core. It's one of the most authentic ways to connect with another person.
+        </p>
+        <p>
+          Unique experiences with food, environment, and curated company serve the same purpose, just in their own way. So if you meet Brad, ask him about his next adventure, and tell him about yours. Whatever that may be.
+        </p>
+      </div>
+
+      <h2 class="mt-16 font-display text-2xl text-paper">The canned, obligatory bio</h2>
+      <div class="mt-6 space-y-5 text-lg leading-relaxed text-paper/80">
+        <p>
+          A mountain climber, adventurer, and entrepreneur at heart, Brad Weimert developed his entrepreneurial and marketing instincts through rich, hands-on life experience. At age 20, he began breaking national sales records as the #1 sales representative in a company of more than 30,000, and kept doing it year after year.
+        </p>
+        <p>
+          In 2007, Brad crossed the country by bicycle, giving speeches to at-risk youth along the way. With a foundation in sales and entrepreneurship, he founded Easy Pay Direct, a payment gateway now considered one of the most critical tools on the market for high-level ecommerce. The Easy Pay Direct platform currently serves more than 60,000 merchants.
+        </p>
+      </div>
+
+      <div class="mt-14 flex flex-wrap gap-4 border-t border-white/10 pt-8 text-sm font-semibold uppercase tracking-wide">
+        <a href="/adventure" class="text-teal hover:text-gold">Adventures</a>
+        <span class="text-paper/30">/</span>
+        <a href="/entrepreneurship" class="text-teal hover:text-gold">Entrepreneurship</a>
+        <span class="text-paper/30">/</span>
+        <a href="https://facebook.com/weimert" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-gold">Facebook</a>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 bg-ink-soft">
+      <div class="mx-auto max-w-4xl px-6 py-16">
+        <h2 class="font-display text-2xl text-paper">Podcast appearances</h2>
+        <ul class="mt-8 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+          {podcasts.map((p) => (
+            <li class="border-b border-white/10 pb-4">
+              <p class="font-semibold text-paper">{p.name}</p>
+              {p.note && <p class="text-sm text-paper/60">"{p.note}"</p>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

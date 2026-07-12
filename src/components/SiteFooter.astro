@@ -1,0 +1,38 @@
+---
+import logoGold from "../assets/brand/logo-gold.png";
+import { Image } from "astro:assets";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/10 bg-ink">
+  <div class="mx-auto max-w-6xl px-6 py-12">
+    <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+      <div class="flex items-center gap-3">
+        <Image src={logoGold} alt="Brad Weimert" width={36} height={30} class="h-7 w-auto opacity-90" />
+        <div>
+          <p class="font-display text-base text-paper">Brad Weimert</p>
+          <p class="text-sm text-paper/60">Fintech CEO. Adventurer. Podcast host. Austin, Texas.</p>
+        </div>
+      </div>
+
+      <nav class="grid grid-cols-2 gap-x-10 gap-y-2 text-sm text-paper/70 sm:grid-cols-4">
+        <a href="/about" class="hover:text-teal">About</a>
+        <a href="/entrepreneurship" class="hover:text-teal">Entrepreneurship</a>
+        <a href="/adventure" class="hover:text-teal">Adventure</a>
+        <a href="/book-brad" class="hover:text-teal">Book Brad</a>
+      </nav>
+
+      <div class="flex flex-col gap-2 text-sm text-paper/70">
+        <a href="https://www.easypaydirect.com" target="_blank" rel="noopener noreferrer" class="hover:text-teal">Easy Pay Direct</a>
+        <a href="https://facebook.com/weimert" target="_blank" rel="noopener noreferrer" class="hover:text-teal">Facebook</a>
+        <a href="https://www.youtube.com/@Beyondamillion" target="_blank" rel="noopener noreferrer" class="hover:text-teal">Beyond A Million</a>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {year} Brad Weimert. All rights reserved.</p>
+      <a href="/privacy-policy" class="hover:text-teal">Privacy Policy</a>
+    </div>
+  </div>
+</footer>

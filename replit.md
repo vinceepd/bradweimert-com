@@ -14,7 +14,7 @@ Standalone static marketing site for www.bradweimert.com, built to replace the c
 
 - Astro 5, fully static output (`output: 'static'`)
 - Tailwind CSS 4 (via `@tailwindcss/vite`)
-- React islands (`@astrojs/react`) only where interactivity is needed
+- No React/JS framework integration right now (no interactive islands needed yet). Add `@astrojs/react` back only if a page genuinely needs client-side interactivity.
 - pnpm, Node.js 24
 
 ## GitHub
@@ -49,7 +49,13 @@ Marketing site for Brad Weimert. Redesign in progress: crawl the live site, extr
 
 ## Gotchas
 
-- This project intentionally does not use the surrounding Replit workspace's pnpm-workspace tooling. Run `pnpm install` from inside this directory, not the workspace root.
+- This project intentionally does not use the surrounding Replit workspace's pnpm-workspace tooling. Always run `pnpm install --ignore-workspace` (and `pnpm add/remove --ignore-workspace ...`) from inside this directory. Without `--ignore-workspace`, pnpm detects the parent monorepo's `pnpm-workspace.yaml` and silently installs against the *root* workspace instead, leaving this directory's `node_modules` untouched.
+
+## Replit preview
+
+- This directory has no `artifact.toml` and is not part of the Replit artifact system, by design (see top of this file).
+- To make the site visible in Replit's preview pane anyway, there's a separate throwaway artifact at `artifacts/bradweimert-preview` that does nothing but reverse-proxy to this project's dev server (port 3001, see `artifacts/bradweimert-preview/server.mjs`). It exists purely for local visual iteration in Replit and is never deployed. Don't edit it as if it were part of the site; it has no page code of its own.
+- The real dev server for this project runs under the "bradweimert-com dev" workflow (`cd bradweimert-com && pnpm run dev`), separate from the artifact system.
 
 ## Pointers
 

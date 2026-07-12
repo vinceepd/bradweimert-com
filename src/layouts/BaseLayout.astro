@@ -1,25 +1,76 @@
 ---
 import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 interface Props {
   title: string;
-  description?: string;
+  description: string;
+  jsonLd?: Record<string, unknown>[];
 }
 
-const { title, description = "" } = Astro.props;
+const { title, description, jsonLd = [] } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Brad Weimert",
+  url: "https://www.bradweimert.com",
+  jobTitle: "Founder & CEO, Easy Pay Direct",
+  worksFor: {
+    "@type": "Organization",
+    name: "Easy Pay Direct",
+    url: "https://www.easypaydirect.com",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Austin",
+    addressRegion: "TX",
+    addressCountry: "US",
+  },
+  sameAs: [
+    "https://facebook.com/weimert",
+    "https://www.youtube.com/@Beyondamillion",
+  ],
+  description:
+    "Brad Weimert is the founder and CEO of Easy Pay Direct, a merchant services and payment gateway company serving more than 60,000 merchants. He is based in Austin, Texas, hosts the Beyond A Million podcast, and is known for extreme physical adventures alongside his work in fintech.",
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    {description && <meta name="description" content={description} />}
+
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personLd)} is:inline />
+    {jsonLd.map((entry) => <script type="application/ld+json" set:html={JSON.stringify(entry)} is:inline />)}
   </head>
-  <body>
+  <body class="min-h-screen">
+    <SiteHeader />
     <slot />
+    <SiteFooter />
   </body>
 </html>

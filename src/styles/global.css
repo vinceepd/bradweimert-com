@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #1b1b1b;
+  --color-ink-soft: #2a2a2a;
+  --color-paper: #f7f5f0;
+  --color-teal: #30c4a0;
+  --color-teal-dark: #1f8f75;
+  --color-gold: #bdae85;
+  --color-gold-soft: #ded3b3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.hex-grid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='96' viewBox='0 0 84 96'%3E%3Cpath fill='none' stroke='%2330c4a0' stroke-opacity='0.18' stroke-width='1' d='M42 0 84 24 84 72 42 96 0 72 0 24Z'/%3E%3C/svg%3E");
+  background-size: 84px 96px;
+}

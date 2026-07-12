@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const faqs = [
+  {
+    q: "What company does Brad Weimert run?",
+    a: "Brad Weimert is the founder and CEO of Easy Pay Direct, a payment gateway and merchant services company serving more than 60,000 merchants.",
+  },
+  {
+    q: "What is Beyond A Million?",
+    a: "Beyond A Million is Brad Weimert's show, featuring conversations with 8, 9, and 10 figure entrepreneurs about sales, marketing, operations, technology, and taxation, and what life and business look like at that scale.",
+  },
+  {
+    q: "Where is Brad Weimert based?",
+    a: "Brad Weimert is based in Austin, Texas.",
+  },
+];
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Entrepreneurship | Brad Weimert, Founder of Easy Pay Direct"
+  description="Brad Weimert founded Easy Pay Direct, a merchant services and payment gateway platform serving more than 60,000 merchants, and hosts the Beyond A Million podcast for founders scaling past eight figures."
+  jsonLd={[faqLd]}
+>
+  <main>
+    <section class="mx-auto max-w-4xl px-6 py-20">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-teal">Entrepreneurship</p>
+      <h1 class="mt-4 font-display text-4xl text-paper sm:text-5xl">A distinctly different type of adventure.</h1>
+      <p class="mt-6 text-lg leading-relaxed text-paper/80">
+        Entrepreneurship is a huge part of who Brad is, built the same way his adventures are: on the far edge of what's comfortable.
+      </p>
+
+      <div class="mt-16 grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-ink-soft p-8">
+          <h2 class="font-display text-2xl text-paper">Easy Pay Direct</h2>
+          <p class="mt-4 text-paper/75">
+            Brad founded Easy Pay Direct, a payment gateway platform that has become one of the most critical tools on the market for high-level ecommerce. It currently serves more than 60,000 merchants.
+          </p>
+          <a href="https://www.easypaydirect.com" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-teal hover:text-gold">
+            Visit Easy Pay Direct
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-ink-soft p-8">
+          <h2 class="font-display text-2xl text-paper">Beyond A Million</h2>
+          <p class="mt-4 text-paper/75">
+            On video and audio, Beyond A Million features conversations with 8, 9, and 10 figure entrepreneurs about sales, marketing, operations, technology, and taxation, and what life and business are like once you're past the first million.
+          </p>
+          <a href="https://www.youtube.com/@Beyondamillion" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-teal hover:text-gold">
+            Watch on YouTube
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-16 border-t border-white/10 pt-10">
+        <h2 class="mb-2 text-sm font-semibold uppercase tracking-[0.3em] text-gold">Track record</h2>
+        <ul class="mt-6 space-y-4 text-paper/80">
+          <li class="flex gap-3"><span class="text-teal">-</span> #1 sales representative in a company of more than 30,000, starting at age 20</li>
+          <li class="flex gap-3"><span class="text-teal">-</span> Founded Easy Pay Direct, now serving 60,000+ merchants</li>
+          <li class="flex gap-3"><span class="text-teal">-</span> Hosts Beyond A Million, interviewing 8, 9, and 10 figure founders</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 bg-ink-soft">
+      <div class="mx-auto max-w-4xl px-6 py-16">
+        <h2 class="font-display text-2xl text-paper">Frequently asked</h2>
+        <div class="mt-8 space-y-6">
+          {faqs.map((f) => (
+            <details class="group rounded-xl border border-white/10 p-5">
+              <summary class="cursor-pointer list-none font-semibold text-paper marker:content-none">
+                {f.q}
+              </summary>
+              <p class="mt-3 text-paper/75">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
